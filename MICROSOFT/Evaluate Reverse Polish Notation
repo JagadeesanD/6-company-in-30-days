@@ -1,0 +1,5 @@
+class Solution:
+    def evalRPN(self, s: List[str]) -> int:
+        a= {"+" : add, "-" : sub, "*" : mul, "/" : truediv}
+        for t in s[:] : s.append(int(a[t](s.pop(-2),s.pop(-1)) if t in a else t))
+        return s[-1]
